@@ -1,0 +1,9 @@
+en:
+  devise:
+    sessions:
+      oauth2_invalid: "Could not login. Invalid account."
+      oauth2_timeout: "OAuth2 session expired., please sign in again to continue."
+      oauth2_authenticity_token: "Something went wrong. For security reasons, please sign in again." # Revise this message =)
+      oauth2_actions:
+        sign_in: "Sign in" # NOTE: Not used for the default Facebook Connect button.
+        sign_out: "Sign out"
