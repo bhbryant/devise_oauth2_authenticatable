@@ -61,7 +61,16 @@ The api key and secret key are no the same a Facebook Connect/the old API.
 The client id should be your application id and the client_key, should be your API key (not secret key)
 
 
+== TODO
 
+Write tests : 
+  Currently no tests have been written. My bad. 
+
+Add Javascript / token based auth :
+  Facebook graph offes a complete authorization solution using javascript and a returned authentication token. Adding optional support for this would complete the Facebook Graph authentication interface. 
+  
+Generalize for OAuth2:
+  Add support for other OAuth2 services. Wrote this specifically for facebook graph, athought configuration arugments should be generalized to support other interfaces. 
 
 
 
