@@ -1,9 +1,9 @@
 defaults: &defaults
     # Required.
-    client_id: <%= options[:api_key] %>
-    client_secret: <%= options[:secret_key] %>
+    client_id: <%= options[:client_id] %>
+    client_secret: <%= options[:client_key] %>
     authorization_server: <%= options[:auth_server] %>
-    requested_scope:  <%= options[:scope] %>
+    requested_scope:  <%= options[:requested_scope] %>
   
 
 

@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{devise_oauth2_authenticatable}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["bhbryant"]
-  s.date = %q{2010-05-16}
-  s.description = %q{Implements OAuth2 for devises, specifically integrating with facebook Graph}
+  s.date = %q{2010-06-13}
+  s.description = %q{Implements OAuth2 for Devise, specifically integrating with facebook Graph}
   s.email = %q{benjamin@bryantmarkowsky.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -22,7 +22,18 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "VERSION",
+     "devise_oauth2_authenticatable.gemspec",
+     "generators/devise_oauth2_authenticatable/devise_oauth2_authenticatable_generator.rb",
+     "generators/devise_oauth2_authenticatable/templates/oauth2_config.yml",
      "lib/devise_oauth2_authenticatable.rb",
+     "lib/devise_oauth2_authenticatable/locales/en.yml",
+     "lib/devise_oauth2_authenticatable/model.rb",
+     "lib/devise_oauth2_authenticatable/routes.rb",
+     "lib/devise_oauth2_authenticatable/schema.rb",
+     "lib/devise_oauth2_authenticatable/strategy.rb",
+     "lib/devise_oauth2_authenticatable/view_helpers.rb",
+     "rails/init.rb",
      "spec/devise_oauth2_authenticatable_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
@@ -31,7 +42,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Devise << OAuth2}
+  s.summary = %q{Implements OAuth2 for Devise}
   s.test_files = [
     "spec/devise_oauth2_authenticatable_spec.rb",
      "spec/spec_helper.rb"

@@ -1,11 +1,11 @@
 # encoding: utf-8
 
-class DeviseOAuth2AuthenticatableGenerator < Rails::Generator::Base #:nodoc:
+class DeviseOauth2AuthenticatableGenerator < Rails::Generator::Base #:nodoc:
 
   default_options :client_id => "YOUR_APP_API_ID",
                   :client_key => "YOUR_APP_SECRET_KEY",
-                  :auth_server => "YOUR_AUTH_SERVER",
-                  :requested_scope: 'email,offline_access,publish_stream'
+                  :auth_server => "https://graph.facebook.com",
+                  :requested_scope => "email,offline_access,publish_stream"
 
   def manifest
     record do |m|
@@ -26,7 +26,7 @@ class DeviseOAuth2AuthenticatableGenerator < Rails::Generator::Base #:nodoc:
       end
 
       opt.on('--key SECRET_KEY', "Application Secret key.") do |v|
-        options[:secret_key] = v if v.present?
+        options[:client_key] = v if v.present?
       end
       opt.on('--server AUTH_SERVER', "Authentication Server.") do |v|
         options[:auth_server] = v if v.present?

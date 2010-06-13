@@ -1,5 +1,70 @@
 = devise_oauth2_authenticatable
 
+This is the basic framework for an OAuth2 gem for Devise. 
+
+It currently works with FacebookGraph, to get started begin by registering a new application at
+
+  http://developers.facebook.com/setup/
+  
+  
+  
+A generator is provided for creating your oauth yml file
+
+script/generate devise_oauth2_authenticatable
+
+Ex: 
+
+script/generate devise_oauth2_authenticatable --id API_ID --key SECRET --server  https://graph.facebook.com --scope 'email,offline_access,publish_stream'
+
+
+
+
+
+
+
+for more details
+  
+http://developers.facebook.com/docs/authentication/
+
+
+
+It's based on the devise facebook gem provided by grimen
+
+  http://github.com/grimen/devise_facebook_connectable
+
+
+
+
+And uses the example provided in OAuth2 library provided by mbleigh
+
+  http://github.com/intridea/oauth2
+
+
+
+
+
+
+DB Migration : 
+
+    add_column :users, :oauth2_uid, :integer, :limit => 8  # BIGINT unsigned / 64-bit int
+    add_column :users, :oauth2_token, :string, :limit => 149  # [128][1][20] chars
+    add_index :users, :oauth2_uid, :unique => true
+
+
+
+Note:
+
+A little souce of confusion when working with Facebook Graph
+
+The api key and secret key are no the same a Facebook Connect/the old API. 
+
+The client id should be your application id and the client_key, should be your API key (not secret key)
+
+
+
+
+
+
 Description goes here.
 
 == Note on Patches/Pull Requests

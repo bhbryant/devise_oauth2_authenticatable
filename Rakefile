@@ -1,20 +1,18 @@
 require 'rubygems'
 require 'rake'
-require File.join(File.dirname(__FILE__), 'lib', 'devise_oauth2_authenticatable', 'version')
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "devise_oauth2_authenticatable"
-    gem.version      = ::Devise::Oauth2Authenticatable::VERSION
-    gem.summary = %{Devise << OAuth2}
-    gem.description = %{Implements OAuth2 for devises, specifically integrating with facebook Graph}
+    gem.summary = %Q{Implements OAuth2 for Devise }
+    gem.description = %Q{Implements OAuth2 for Devise, specifically integrating with facebook Graph}
     gem.email = "benjamin@bryantmarkowsky.com"
     gem.homepage = "http://github.com/bhbryant/devise_oauth2_authenticatable"
     gem.authors = ["bhbryant"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     
-    gem.add_dependency'devise', '>= 1.0.0'
+        gem.add_dependency'devise', '>= 1.0.0'
     gem.add_dependency "oauth2" 
     gem.add_dependency "json"
 
