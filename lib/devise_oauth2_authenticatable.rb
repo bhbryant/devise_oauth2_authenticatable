@@ -36,7 +36,8 @@ module Devise
   
   def self.session_sign_in_url(request, mapping)
     url = URI.parse(request.url)
-    url.path = "#{mapping.parsed_path}/#{mapping.path_names[:sign_in]}"
+    # url.path = "#{mapping.parsed_path}/#{mapping.path_names[:sign_in]}"
+    url.path = "#{mapping.full_path}/#{mapping.path_names[:oauth2]}"
     url.query = nil
     url.to_s
   end
@@ -56,4 +57,5 @@ I18n.load_path.unshift File.join(File.dirname(__FILE__), *%w[devise_oauth2_authe
 Devise.add_module(:oauth2_authenticatable,
   :strategy => true,
   :controller => :sessions,
+  :route => :oauth2,
   :model => 'devise_oauth2_authenticatable/model')

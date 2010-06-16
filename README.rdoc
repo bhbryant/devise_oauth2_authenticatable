@@ -1,3 +1,5 @@
+= This is a Fork version that works Devise with Rails 3 =
+
 = devise_oauth2_authenticatable
 
 This is the basic framework for an OAuth2 gem for Devise. 

@@ -1,11 +1,9 @@
-# encoding: utf-8
-
-ActionController::Routing::RouteSet::Mapper.class_eval do
-
+ActionDispatch::Routing::Mapper.class_eval do
   protected
-
-    # Setup routes for +OAuth2SessionsController+.
-    #
-    alias :oauth2_authenticatable :database_authenticatable
-
+  
+  def devise_oauth2(mapping, controllers)
+    scope mapping.full_path do
+      get mapping.path_names[:oauth2],  :to => "#{controllers[:sessions]}#create", :as => :"oauth2_#{mapping.name}_session"
+    end
+  end
 end
