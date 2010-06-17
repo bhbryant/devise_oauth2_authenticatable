@@ -1,7 +1,9 @@
 = devise_oauth2_authenticatable
 
 == This fork works with Devise 1.1 + Rails 3
-Quick tutorial for Devise 1.1 + Rails 3 + devise_oauth2_authenticatable
+
+
+==Quick tutorial for Devise 1.1 + Rails 3 + devise_oauth2_authenticatable
 
 Set up your Facebook app at http://developers.facebook.com/setup/
 
@@ -16,7 +18,7 @@ Add the following lines to your Gemfile:
   
 Add the following line to the bottom of config/initializers/devise.rb (it should be fixed, I know, just bare with it for now)
 
-Devise::OAUTH2_CONFIG = YAML.load_file(Rails.root.join('config', 'oauth2_config.yml'))[Rails.env]
+  Devise::OAUTH2_CONFIG = YAML.load_file(Rails.root.join('config', 'oauth2_config.yml'))[Rails.env]
   
 Run the following commands:
   bundle install
