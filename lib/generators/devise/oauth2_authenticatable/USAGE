@@ -1,0 +1,8 @@
+Description:
+    Generates a OAuth2 config file for your application. All the parameters are optional.
+
+Example:
+    rails g devise:oauth2_authenticatable APP_ID SECRET 'email,offline_access,publish_stream'
+
+    This will create:
+        config/oauth2_config.yml

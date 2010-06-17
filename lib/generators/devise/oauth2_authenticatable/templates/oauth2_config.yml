@@ -1,0 +1,21 @@
+defaults: &defaults
+    # Required.
+    client_id: <%= client_id %>
+    client_secret: <%= client_key %>
+    authorization_server: <%= auth_server %>
+    requested_scope: <%= requested_scope %>
+
+development:
+  <<: *defaults
+
+test: &test
+  <<: *defaults
+
+production: &production
+  <<: *defaults
+
+# staging:
+#   <<: *production
+#
+# cucumber:
+#   <<: *test

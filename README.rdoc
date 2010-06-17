@@ -12,13 +12,11 @@ It currently works with FacebookGraph, to get started begin by registering a new
   
 A generator is provided for creating your oauth yml file
 
-script/generate devise_oauth2_authenticatable
+rails g devise:oauth2_authenticatable
 
 Ex: 
 
-script/generate devise_oauth2_authenticatable --id API_ID --key SECRET --server  https://graph.facebook.com --scope 'email,offline_access,publish_stream'
-
-
+rails g devise:oauth2_authenticatable APP_ID SECRET 'email,offline_access,publish_stream'
 
 
 
@@ -72,7 +70,7 @@ Add Javascript / token based auth :
   Facebook graph offes a complete authorization solution using javascript and a returned authentication token. Adding optional support for this would complete the Facebook Graph authentication interface. 
   
 Generalize for OAuth2:
-  Add support for other OAuth2 services. Wrote this specifically for facebook graph, athought configuration arugments should be generalized to support other interfaces. 
+  Add support for other OAuth2 services. Wrote this specifically for facebook graph, althought configuration arugments should be generalized to support other interfaces. 
 
 
 

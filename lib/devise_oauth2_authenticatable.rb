@@ -2,7 +2,6 @@
 require 'devise'
 require 'oauth2'
 
-
 require 'devise_oauth2_authenticatable/model' 
 require 'devise_oauth2_authenticatable/strategy'
 require 'devise_oauth2_authenticatable/schema'
