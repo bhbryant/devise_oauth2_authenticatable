@@ -1,4 +1,4 @@
-= This is a Fork version that works Devise with Rails 3 =
+= This is a Fork version that works Devise with Rails 3
 
 = devise_oauth2_authenticatable
 
