@@ -16,10 +16,6 @@ Add the following lines to your Gemfile:
   gem "devise", :git => "git://github.com/plataformatec/devise.git"
   gem "devise_oauth2_authenticatable", :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
   
-Add the following line to the bottom of config/initializers/devise.rb (it should be fixed, I know, just bare with it for now)
-
-  Devise::OAUTH2_CONFIG = YAML.load_file(Rails.root.join('config', 'oauth2_config.yml'))[Rails.env]
-  
 Run the following commands:
   bundle install
   rails g devise:install

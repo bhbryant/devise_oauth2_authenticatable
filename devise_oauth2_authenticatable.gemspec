@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
      "devise_oauth2_authenticatable.gemspec",
      "lib/devise_oauth2_authenticatable.rb",
      "lib/devise_oauth2_authenticatable/locales/en.yml",
+     "lib/devise_oauth2_authenticatable/rails.rb",
      "lib/devise_oauth2_authenticatable/model.rb",
      "lib/devise_oauth2_authenticatable/routes.rb",
      "lib/devise_oauth2_authenticatable/schema.rb",
@@ -34,7 +35,6 @@ Gem::Specification.new do |s|
      "lib/generators/oauth2_authenticatable/oauth2_authenticatable_generator.rb",
      "lib/generators/oauth2_authenticatable/templates/oauth2_config.yml",
      "lib/generators/oauth2_authenticatable/USAGE",
-     "rails/init.rb",
      "spec/devise_oauth2_authenticatable_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"

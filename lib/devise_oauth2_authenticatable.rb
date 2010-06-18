@@ -8,7 +8,7 @@ require 'devise_oauth2_authenticatable/schema'
 require 'devise_oauth2_authenticatable/routes'
 #require 'devise_oauth2_authenticatable/controller_filters'
 require 'devise_oauth2_authenticatable/view_helpers'
-
+require 'devise_oauth2_authenticatable/rails'
 
 module Devise
   # Specifies the name of the database column name used for storing
