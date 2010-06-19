@@ -60,6 +60,12 @@ The api key and secret key are no the same a Facebook Connect/the old API.
 
 The client id should be your application id and the client_key, should be your API key (not secret key)
 
+== OTHER
+
+  jerryluk has made imporvements to support devise 1.1 and Rails 3
+  
+  http://github.com/jerryluk/devise_oauth2_authenticatable
+
 
 == TODO
 
