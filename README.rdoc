@@ -58,8 +58,8 @@ Add the sign in/sign out links to your applications.html.erb:
 
 The usual stuffs:
   rm public/index.html
-  rails db:create
-  rails db:migrate
+  rake db:create
+  rake db:migrate
   rails s
   
 Navigate your browser to http://localhost:3000, there are many things to fix but you are mostly there!
