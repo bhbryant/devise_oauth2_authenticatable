@@ -4,6 +4,8 @@ defaults: &defaults
     client_secret: <%= client_key %>
     authorization_server: <%= auth_server %>
     requested_scope: <%= requested_scope %>
+    authorize_path: <%= authorize_path %>
+    access_token_path:<%= access_token_path %>
 
 development:
   <<: *defaults
