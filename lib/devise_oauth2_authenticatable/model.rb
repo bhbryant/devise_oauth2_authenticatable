@@ -102,8 +102,8 @@ module Devise #:nodoc:
         #
         def on_after_oauth2_connect(oauth2_user_attributes)
           
-          if self.respond_to?(:after_oauth2_auto_create)
-            self.send(:after_oauth2_auto_create, oauth2_user_attributes) rescue nil
+          if self.respond_to?(:after_oauth2_connect)
+            self.send(:after_oauth2_connect, oauth2_user_attributes) rescue nil
           end
         end
 
