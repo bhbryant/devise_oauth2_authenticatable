@@ -32,9 +32,9 @@ Gem::Specification.new do |s|
      "lib/devise_oauth2_authenticatable/schema.rb",
      "lib/devise_oauth2_authenticatable/strategy.rb",
      "lib/devise_oauth2_authenticatable/view_helpers.rb",
-     "lib/generators/oauth2_authenticatable/oauth2_authenticatable_generator.rb",
-     "lib/generators/oauth2_authenticatable/templates/oauth2_config.yml",
-     "lib/generators/oauth2_authenticatable/USAGE",
+     "lib/generators/devise/oauth2_authenticatable/oauth2_authenticatable_generator.rb",
+     "lib/generators/devise/oauth2_authenticatable/templates/oauth2_config.yml",
+     "lib/generators/devise/oauth2_authenticatable/USAGE",
      "spec/devise_oauth2_authenticatable_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
