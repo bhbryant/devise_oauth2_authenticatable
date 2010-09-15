@@ -64,7 +64,7 @@ module Devise #:nodoc:
                 begin
                   
                   
-                  user.save(true)
+                  user.save
                   user.on_after_oauth2_connect(oauth2_user_attributes)
                   
                   
