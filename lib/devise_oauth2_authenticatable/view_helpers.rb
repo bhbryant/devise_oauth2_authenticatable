@@ -9,15 +9,19 @@ module Devise #:nodoc:
     module Helpers
       
       # Creates the link to 
-      def link_to_oauth2(link_text, options={})
+      def link_to_oauth2(scope, link_text, options={})
+                
         
+        callback_url = send("#{scope.to_s}_oauth_callback_url", options[:params] || {})
         
-        session_sign_in_url = Devise::session_sign_in_url(request,::Devise.mappings[:user])
+   #        callback_url = URI.parse(URI.escape(request.url, /\|/))
+    #      callback_url.query = params.has_key?(:popup) ? "popup=#{params[:popup]}" : nil
+        
       
         link_to link_text, Devise::oauth2_client.web_server.authorize_url(
-            :redirect_uri => session_sign_in_url,  
+            :redirect_uri => callback_url ,  
             :scope => Devise::requested_scope
-          ), options
+          ) , options
       end
 
 

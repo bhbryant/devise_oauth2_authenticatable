@@ -83,7 +83,7 @@ module Devise #:nodoc:
         def on_before_oauth2_auto_create(oauth2_user_attributes)
           
           if self.respond_to?(:before_oauth2_auto_create)
-            self.send(:before_oauth2_auto_create, oauth2_user_attributes) rescue nil
+            self.send(:before_oauth2_auto_create, oauth2_user_attributes) 
           end
         end
 
@@ -103,10 +103,29 @@ module Devise #:nodoc:
         def on_after_oauth2_connect(oauth2_user_attributes)
           
           if self.respond_to?(:after_oauth2_auto_create)
-            self.send(:after_oauth2_auto_create, oauth2_user_attributes) rescue nil
+            self.send(:after_oauth2_auto_create, oauth2_user_attributes) 
           end
+          on_after_oauth2_connect
         end
-
+        # Hook that gets called *after* a connection (each time). Useful for
+        # fetching additional user info (etc.) from OAuth2.
+        #
+        # Default: Do nothing.
+        #
+        # == Example:
+        #
+        #   # Overridden in OAuth2 Connect:able model, e.g. "User".
+        #   #
+        #   def after_oauth2_connect(oauth2_user_attributes)
+        #     # See "on_before_oauth2_connect" example.
+        #   end
+        #
+        def on_after_oauth2_connect(oauth2_user_attributes)
+         if self.respond_to?(:after_oauth2_connect)
+           self.send(:after_oauth2_connect, oauth2_user_attributes)
+         end
+        end
+=begin
         # Optional: Store session key.
         #
         def store_session(using_token)
@@ -114,7 +133,7 @@ module Devise #:nodoc:
             self.update_attribute(self.send(:"#{self.class.oauth2_token_field}"), using_token)
           end
         end
-      
+=end    
       protected
 
       # Passwords are always required if it's a new rechord and no oauth_id exists, or if the password
@@ -177,7 +196,8 @@ module Devise #:nodoc:
             #
             def find_for_oauth2(uid, conditions = {})
               
-              self.find_by_oauth2_uid(uid, :conditions => conditions)
+              self.send(:"find_by_#{self.oauth2_uid_field}", uid, :conditions => conditions)  
+              #self.find_by_oauth2_uid(uid, :conditions => conditions)
             end
             
             

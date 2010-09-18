@@ -9,6 +9,7 @@ require 'devise_oauth2_authenticatable/schema'
 require 'devise_oauth2_authenticatable/routes'
 #require 'devise_oauth2_authenticatable/controller_filters'
 require 'devise_oauth2_authenticatable/view_helpers'
+require 'devise_oauth2_authenticatable/session_controller_extension.rb'
 
 
 module Devise
@@ -29,15 +30,19 @@ module Devise
   mattr_accessor :oauth2_auto_create_account
   @@oauth2_auto_create_account = true
   
+  
+  mattr_accessor :oauth2_callback_path
+ 	@@oauth2_callback_path = '/oauth_callback'
+ 	
   def self.oauth2_client
     @@oauth2_client ||= OAuth2::Client.new(OAUTH2_CONFIG['client_id'], OAUTH2_CONFIG['client_secret'], :site => OAUTH2_CONFIG['authorization_server'])
   end
   
   
-  def self.session_sign_in_url(request, mapping)
-    url = URI.parse(request.url)
+  def self.session_sign_in_url(request, mapping, params = nil)
+    url = URI.parse(URI.escape(request.url,/\|/))
     url.path = "#{mapping.parsed_path}/#{mapping.path_names[:sign_in]}"
-    url.query = nil
+    url.query = params
     url.to_s
   end
   

@@ -28,10 +28,28 @@ module Devise #:nodoc:
           begin
 
 
+          #query_params = params.has_key?(:popup) ? "popup=#{params[:popup]}" : nil
+          callback_url = URI.parse(URI.escape(request.url, /\|/))
+          callback_url.query = params.has_key?(:popup) ? "popup=#{params[:popup]}" : nil
+        
+        # Verify User Auth code and get access token from auth server: will error on failue
+        access_token = Devise::oauth2_client.web_server.get_access_token( 
+          params[:code], 
+          :redirect_uri => callback_url.to_s
+        )
+               
+
+=begin
+
+            query_params = params.has_key?(:popup) ? "popup=#{params[:popup]}" : nil
+            sign_in_url =   Devise::session_sign_in_url(request, mapping, query_params)
             # Verify User Auth code and get access token from auth server: will error on failue
             access_token = Devise::oauth2_client.web_server.get_access_token(
-                    params[:code], :redirect_uri => Devise::session_sign_in_url(request,mapping)
+                params[:code], :redirect_uri => sign_in_url
                   )
+                  
+=end                
+                  
                   
             # retrieve user attributes     
             
