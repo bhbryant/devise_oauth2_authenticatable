@@ -9,7 +9,7 @@ require 'devise_oauth2_authenticatable/schema'
 require 'devise_oauth2_authenticatable/routes'
 #require 'devise_oauth2_authenticatable/controller_filters'
 require 'devise_oauth2_authenticatable/view_helpers'
-require 'devise_oauth2_authenticatable/session_controller_extension.rb'
+#require 'devise_oauth2_authenticatable/sessions_controller_extension.rb'
 
 
 module Devise
@@ -62,3 +62,6 @@ Devise.add_module(:oauth2_authenticatable,
   :strategy => true,
   :controller => :sessions,
   :model => 'devise_oauth2_authenticatable/model')
+  
+  
+#::Devise::SessionsController.send :include, ::Devise::Oauth2Authenticatable::SessionsControllerExtension
