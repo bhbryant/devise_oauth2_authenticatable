@@ -196,7 +196,7 @@ module Devise #:nodoc:
             #
             def find_for_oauth2(uid, conditions = {})
               
-              self.send(:"find_by_#{self.oauth2_uid_field}", uid, :conditions => conditions)  
+              self.send(:"find_by_#{self.oauth2_uid_field}", uid.to_i, :conditions => conditions)  
               #self.find_by_oauth2_uid(uid, :conditions => conditions)
             end
             
