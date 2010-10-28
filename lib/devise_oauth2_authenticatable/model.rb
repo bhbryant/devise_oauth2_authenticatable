@@ -155,7 +155,7 @@ module Devise #:nodoc:
             
               # find user and update access token 
               returning(self.find_for_oauth2(oauth2_id)) do |user|
-                user.update_attributes(:"#{self.class.oauth2_token_field}" => oauth2_token) unless user.nil?
+                user.update_attributes(:"#{self.oauth2_token_field}" => oauth2_token) unless user.nil?
               end
 
           end
@@ -176,7 +176,7 @@ module Devise #:nodoc:
             #   end
             #
             def find_for_oauth2(uid, conditions = {})
-              self.send(:"find_by_#{self.class.oauth2_uid_field}",uid, :conditions => conditions)
+              self.send(:"find_by_#{self.oauth2_uid_field}",uid, :conditions => conditions)
             end
             
             
