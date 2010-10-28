@@ -121,7 +121,7 @@ module Devise #:nodoc:
       # or confirmation are being set somewhere.
       def password_required?
         
-        ( new_record? && oauth2_uid.nil? ) || !password.nil? || !password_confirmation.nil?
+        ( new_record? && self.send(:"#{self.class.oauth2_uid_field}").nil? ) || !password.nil? || !password_confirmation.nil?
       end
 
         module ClassMethods
