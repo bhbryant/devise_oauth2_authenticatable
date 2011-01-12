@@ -157,6 +157,7 @@ module Devise #:nodoc:
             
               # find user and update access token 
               self.find_for_oauth2(oauth2_id).tap do |user|
+                debugger
                 user.update_attributes(:"#{self.oauth2_token_field}" => oauth2_token) unless user.nil?
               end
 

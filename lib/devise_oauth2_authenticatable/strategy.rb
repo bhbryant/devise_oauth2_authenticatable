@@ -44,7 +44,6 @@ module Devise #:nodoc:
             user = klass.authenticate_with_oauth2(oauth2_user_attributes['id'], access_token.token)
 
 
-
             if user.present?
               user.on_after_oauth2_connect(oauth2_user_attributes)
               success!(user)
