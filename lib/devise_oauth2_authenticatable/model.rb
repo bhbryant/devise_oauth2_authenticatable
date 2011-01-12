@@ -107,6 +107,7 @@ module Devise #:nodoc:
           end
         end
 
+
         # Optional: Store session key.
         #
         def store_session(using_token)
@@ -114,7 +115,7 @@ module Devise #:nodoc:
             self.update_attribute(self.send(:"#{self.class.oauth2_token_field}"), using_token)
           end
         end
-      
+     
       protected
 
       # Passwords are always required if it's a new rechord and no oauth_id exists, or if the password
@@ -153,8 +154,9 @@ module Devise #:nodoc:
           #
           def authenticate_with_oauth2(oauth2_id, oauth2_token)
             
+            
               # find user and update access token 
-              returning(self.find_for_oauth2(oauth2_id)) do |user|
+              self.find_for_oauth2(oauth2_id).tap do |user|
                 user.update_attributes(:"#{self.oauth2_token_field}" => oauth2_token) unless user.nil?
               end
 
@@ -176,7 +178,7 @@ module Devise #:nodoc:
             #   end
             #
             def find_for_oauth2(uid, conditions = {})
-              self.send(:"find_by_#{self.oauth2_uid_field}",uid, :conditions => conditions)
+              self.first oauth2_uid_field => uid.to_i
             end
             
             

@@ -53,7 +53,7 @@ module Devise #:nodoc:
                 
                 
                 
-                user = returning(klass.new) do |u|
+                user = klass.new.tap do |u|
                   u.store_oauth2_credentials!(
                       :token => access_token.token,
                       :uid => oauth2_user_attributes['id']
