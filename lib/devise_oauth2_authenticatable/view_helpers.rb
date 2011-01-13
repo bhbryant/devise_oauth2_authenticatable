@@ -13,6 +13,8 @@ module Devise #:nodoc:
         
         
         session_sign_in_url = Devise::session_sign_in_url(request,::Devise.mappings[:user])
+        
+       # session_sign_in_url = send("#{scope.to_s}_oauth_callback_url", options[:params] || {})
       
         link_to link_text, Devise::oauth2_client.web_server.authorize_url(
             :redirect_uri => session_sign_in_url,  
